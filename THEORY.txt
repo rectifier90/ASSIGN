@@ -1,0 +1,152 @@
+**************
+
+INT FUNCTIONS :
+
+Returns a random number between 0 and 1.
+
+SELECT rand();
+
+Returns the sign of the numeric expression as -1, 0, or 1, representing negative, zero, or positive respectively.
+
+SELECT sign(-1);
+
+Returns the square root of the numeric expression
+
+SELECT sqrt(25);
+
+Raises the numeric expression to the power of p.
+
+SELECT pow(3, 2);
+
+
+
+******************
+
+
+DATE FUNCTIONS :
+
+
+Formats a date or timestamp according to the specified format string. The format follows the Java SimpleDateFormat format
+
+SELECT date_format(date_column, 'yyyy-MM-dd');
+SELECT date_format(timestamp_column, 'yyyy-MM-dd HH:mm:ss');
+
+Extracts the year from a date or timestamp.
+
+SELECT year(date_column);
+SELECT year(timestamp_column);
+
+Extracts the quarter from a date or timestamp
+
+SELECT quarter(date_column);
+SELECT quarter(timestamp_column);
+
+Extracts the month from a date or timestamp.
+
+SELECT month(date_column);
+SELECT month(timestamp_column);
+
+
+********************
+
+STRING FUNCTIONS
+
+SELECT length('Welcome US');
+
+Converts all characters in the input string to lowercase
+
+SELECT lower('Welcome US');
+
+Converts all characters in the input string to uppercase
+ 
+SELECT upper('Welcome US');
+
+Extracts a substring from the input string, starting from the specified index and with the specified length
+
+SELECT substring('Welcome US', 3, 5);
+
+Removes leading and trailing whitespace from the input string
+
+SELECT trim('   Welcome US   ');
+
+Returns the position of the first occurrence of the substring within the input string.
+
+SELECT instr('Welcome US', 'US');
+
+
+*************************
+
+ RDD API 
+
+
+RDD API's
+
+The RDD (Resilient Distributed Dataset) API is a fundamental data structure in Apache Spark, which is a distributed computing framework. RDDs provide a way to distribute data across a cluster and perform parallel operations on that data. Here are some key RDD API functions in Spark:
+
+>
+parallelize: Creates an RDD from a collection in the driver program
+
+data = [1, 2, 3, 4, 5]
+rdd = sparkContext.parallelize(data)
+
+>
+textFile: Creates an RDD by reading data from a text file.
+
+rdd = sparkContext.textFile("file.txt")
+
+>
+map: Applies a function to each element of the RDD and returns a new RDD.
+
+squared_rdd = rdd.map(lambda x: x*x)
+>
+filter: Filters the elements of the RDD based on a predicate and returns a new RDD with the filtered elements.
+
+filtered_rdd = rdd.filter(lambda x: x > 3)
+
+>
+reduce: Aggregates the elements of the RDD using a binary operator and returns a single result.
+
+sum = rdd.reduce(lambda x, y: x + y)
+
+>
+flatMap: Applies a function to each element of the RDD and returns a new RDD by flattening the results.
+
+words_rdd = rdd.flatMap(lambda x: x.split())
+
+>
+groupByKey: Groups the values of the RDD by key and returns an RDD of key-value pairs
+
+grouped_rdd = rdd.groupByKey()
+
+
+>
+sortByKey: Sorts the elements of the RDD by key and returns a new RDD
+
+sorted_rdd = rdd.sortByKey()
+
+>
+join: Performs an inner join between two RDDs based on a common key and returns a new RDD.
+
+joined_rdd = rdd1.join(rdd2)
+
+>
+persist: Persists the RDD in memory or disk for faster reuse.
+
+rdd.persist()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
